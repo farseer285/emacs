@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("opensource"
+ (filename . "~/workspace/opensource/")
+ (front-context-string)
+ (rear-context-string . "02 Apr  6 12:58 ")
+ (position . 227))
+("go"
+ (filename . "~/workspace/go/")
+ (front-context-string)
+ (rear-context-string . "36 Apr  5 15:57 ")
+ (position . 220))
+)
