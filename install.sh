@@ -1,2 +1,2 @@
-ln -sf /Users/rock/workspace/emacs/emacs ~/.emacs
-ln -sf /Users/rock/workspace/emacs/emacs.d ~/.emacs.d
+ln -sf `pwd`/emacs ~/.emacs
+ln -sf `pwd`/emacs.d ~/.emacs.d
