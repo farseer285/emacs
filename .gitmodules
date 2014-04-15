@@ -1,0 +1,3 @@
+[submodule "emacs.d/vendor/xcscope"]
+	path = emacs.d/vendor/xcscope
+	url = https://github.com/dkogan/xcscope.el.git

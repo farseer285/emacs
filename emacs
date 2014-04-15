@@ -50,3 +50,12 @@
 	    (flyspell-prog-mode)
 	    ))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;; Modify the default backup directory
+(setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
+
+
+;;; cscope
+(require 'xcscope)
+(cscope-setup)
