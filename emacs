@@ -38,10 +38,26 @@
 (require 'magit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;; GO Development ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq exec-path (append exec-path (list (expand-file-name "~/workspace/go/bin"))))
+
 (add-hook 'go-mode-hook
 	  (lambda ()
 	    (flyspell-prog-mode)
 	    ))
+
+(add-hook 'go-mode-hook
+	  (lambda ()
+	  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c i") 'go-goto-imports)))
+
+(require 'go-flymake)
+
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Python Development ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -56,6 +72,44 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
 
 
+;;; iSpell
+
+(setq-default ispell-program-name "aspell")
+(ispell-change-dictionary "american" t)
+
 ;;; cscope
 (require 'xcscope)
 (cscope-setup)
+
+
+;;;;;;;;;;;;;;;;;;; Integrate with Dash ;;;;;;;;;;;;;;;;;
+(autoload 'dash-at-point "dash-at-point"
+	  "Search the word at point with Dash" t nil)
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;; ORG Presention ;;;;;;;;;;;;;;;;;;;;;;;
+(autoload 'org-present "org-present" nil t)
+(add-hook 'org-present-mode-hook
+	  (lambda ()
+	  	  (org-present-big)
+		  	  (org-display-inline-images)))
+
+(add-hook 'org-present-mode-quit-hook
+	  (lambda ()
+		  (org-present-small)
+			  (org-remove-inline-images)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;; TAB & Whitespace ;;;;;;;;;;;;;;;;;;;
+(setq-default indent-tabs-mode nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(require 'visws)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;; Handlebars ;;;;;;;;
+(require 'handlebars-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
