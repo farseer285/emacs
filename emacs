@@ -113,3 +113,18 @@
 ;;;;;;; Handlebars ;;;;;;;;
 (require 'handlebars-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;; Custom shortcut key ;;;;;;;;;;;;;;;;;
+(global-set-key [(control o)] 'other-window)
+
+(global-set-key [(meta g)] 'goto-line)
+
+(defun revert-buffer-no-confirm ()
+  (interactive)
+  (when (buffer-file-name)
+      (revert-buffer buffer-file-name t)
+      ))
+(global-set-key (kbd "C-x u") 'revert-buffer-no-confirm)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
