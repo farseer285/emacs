@@ -53,7 +53,7 @@
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c i") 'go-goto-imports)))
 
-(require 'go-flymake)
+;(require 'go-flymake)
 
 (require 'go-autocomplete)
 (require 'auto-complete-config)
