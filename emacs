@@ -79,7 +79,7 @@
 
 ;;; cscope
 (require 'xcscope)
-(cscope-setup)
+;(cscope-setup)
 
 
 ;;;;;;;;;;;;;;;;;;; Integrate with Dash ;;;;;;;;;;;;;;;;;
